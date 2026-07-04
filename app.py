@@ -148,11 +148,11 @@ async def fill(page):
                 txt = (
                     f"Dear Hiring Team,\n\n"
                     f"I am excited to apply for this position. "
-                    f"As a Security Supervisor with over 1 year of experience "
-                    f"managing 37 security personnel across 3 facilities in Doha, "
-                    f"Qatar, I bring strong leadership and operational excellence. "
-                    f"I achieved a 90% reduction in unauthorized access attempts "
-                    f"and hold a degree in Aviation Management.\n\n"
+                    f"As a Technical Support Specialist with over 4 year of experience "
+                    f"I specialize in developing secure web and mobile applications, "
+                    f"Proficient in database management, systems analysis. "
+                    f"and cloud computing, I am committed to delivering  "
+                    f"innovative solutions to complex IT challenges.\n\n"
                     f"Best regards,\n{NAME}\n{PHONE}"
                 )
                 await ta.fill(txt)
@@ -356,8 +356,12 @@ async def search(page, conn, job, loc):
 # ── Main ──────────────────────────────────────────────────────────────────────
 async def main():
     conn = db()
-    print(f"\n{'='*55}")
-    print(f"🚀 AutoApply — abdalla mohamed ")
+    import pyfiglet
+
+    # فيه خطوط كثيرة تقدر تجرب منها: slant, standard, banner, big, block, doom...
+    ascii_art = pyfiglet.figlet_format("INJECTION", font="slant")
+    print(ascii_art)
+    print(f" AutoApply — Injection ")
     print(f"   Applied today: {cnt(conn)}/{LIMIT}")
     print(f"   Jobs: {len(JOBS)} titles × {len(LOCS)} locations")
     print(f"   Pages per search: 4 (up to 100 jobs each)")
@@ -392,8 +396,8 @@ async def main():
             wait_until="domcontentloaded",
             timeout=30000,
         )
-        print("⚠️ Please login to Chrome now ")
-        input("✅ Press Enter After you see the feed page ...\n")
+        print(" Please login to LinkedIn ")
+        input(" Press Enter After you see the feed page ...\n")
         try:
             await page.wait_for_url("**/feed/**", timeout=10000)
         except:
